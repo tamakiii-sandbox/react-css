@@ -49,7 +49,7 @@ DEV_PACKAGES := \
 	# style-loader \
 	# uglifyjs-webpack-plugin \
 
-install: \
+all: \
 	package.json \
 	tslint.json \
 	tsconfig.json \

@@ -1,5 +1,3 @@
-.PHONY: package.json
-
 PACKAGES := \
 	react \
 	react-dom \

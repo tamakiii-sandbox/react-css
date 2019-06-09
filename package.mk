@@ -21,6 +21,7 @@ DEV_PACKAGES := \
 	webpack \
 	webpack-cli \
 	webpack-dev-server \
+	html-webpack-plugin \
 	typescript \
 	ts-loader \
 	jest \
@@ -52,12 +53,19 @@ all: \
 	tslint.json \
 	tsconfig.json \
 	webpack.config.js \
-	.gitignore
+	.gitignore \
+	dist
 
 package.json:
 	npm init --yes
+
+packages.txt:
 	npm install --save-prod $(PACKAGES)
+	echo $(PACKAGES) | sed 's/ /\n/g' > $@
+
+packages.dev.txt:
 	npm install --save-dev $(DEV_PACKAGES)
+	echo $(DEV_PACKAGES) | sed 's/ /\n/g' > $@
 
 tslint.json:
 	npx tslint --init
@@ -72,7 +80,11 @@ webpack.config.js:
 .gitignore:
 	touch $@
 	echo '/node_modules/' >> $@
+	echo '/dist/' >> $@
 	echo '.yo-rc.json' >> $@
+
+dist:
+	mkdir -p dist
 
 clean:
 	rm -rf package.json
@@ -81,4 +93,6 @@ clean:
 	rm -rf webpack.config.js
 	rm -rf .gitignore
 	rm -rf node_modules/
+	rm -rf packages.txt
+	rm -rf packages.dev.txt
 

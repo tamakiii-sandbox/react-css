@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /*
  * We've enabled Postcss, autoprefixer and precss for you. This allows your app
@@ -106,8 +107,18 @@ module.exports = {
   },
 
   output: {
-    filename: '[name].[hash].js'
+    filename: '[name].[hash].js',
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      // templateParameters: {
+      //   appMountIds: 'root'
+      // }
+      // template: "src/index.html"
+    }),
+  ],
 
   resolve: {
     modules: [

@@ -46,6 +46,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          transpileOnly: true
+        }
+      },
+      {
         include: [path.resolve(__dirname, 'src')],
         loader: 'babel-loader',
 
@@ -98,7 +106,17 @@ module.exports = {
   },
 
   output: {
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[hash].js'
+  },
+
+  resolve: {
+    modules: [
+      path.resolve("./src"),
+      path.resolve("./node_modules")
+    ],
+    extensions: [
+      ".ts", ".tsx", ".js", ".jsx"
+    ]
   },
 
   mode: 'development',

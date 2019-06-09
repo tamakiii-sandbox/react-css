@@ -1,10 +1,11 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import Bootstrap from "./bootstrap";
 
 const App = () => (
   <section>
-    <h1>Test</h1>
-    <p>hello</p>
+    <h1>React CSS</h1>
+    <Bootstrap></Bootstrap>
   </section>
 )
 

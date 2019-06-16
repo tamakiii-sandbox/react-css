@@ -75,31 +75,27 @@ module.exports = {
       },
       {
         test: /\.css$/,
-
         use: [
+          'style-loader',
+          'css-loader',
+        ]
+      },
+      {
+        test: /\.pcss$/,
+        use: [
+          'style-loader',
+          'css-loader',
           {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-
-            options: {
-              importLoaders: 1,
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-
-            options: {
-              plugins: function() {
-                return [precss, autoprefixer];
-              }
-            }
+            loader: 'post-css-loader'
+            // options: {
+            //   plugins: [
+            //     require('postcss-nested')
+            //   ]
+            // }
           }
         ]
       }
-    ]
+    ],
   },
 
   entry: {

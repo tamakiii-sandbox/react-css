@@ -31,6 +31,8 @@ DEV_PACKAGES := \
 	ts-jest \
 	tslint \
 	power-assert \
+	postcss \
+	postcss-loader \
 	@babel/preset-env \
 	@babel/preset-react \
 	@types/jest \
@@ -76,6 +78,9 @@ tsconfig.json:
 webpack.config.js:
 	npx webpack init
 	npx eslint --fix --fix --no-eslintrc --rule 'indent: ["error", 2]' --parser-options='ecmaVersion:2015' $@
+
+postcss.config.js:
+	echo "module.exports = { plugins: [ require('autoprefixer'), require('postcss-nested') ] }" > $@
 
 .gitignore:
 	touch $@

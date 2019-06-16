@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { WebpackPluginServe: Serve } = require('webpack-plugin-serve');
 
 /*
  * We've enabled Postcss, autoprefixer and precss for you. This allows your app
@@ -76,7 +77,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          // 'style-loader',
           'css-loader',
         ]
       },
@@ -99,7 +100,8 @@ module.exports = {
   },
 
   entry: {
-    app: './src/app'
+    app: './src/app',
+    serve: 'webpack-plugin-serve/client',
   },
 
   output: {
@@ -110,6 +112,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
+    new Serve({
+      static: ['.'],
+    })
   ],
 
   resolve: {

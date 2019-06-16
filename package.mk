@@ -78,10 +78,11 @@ tsconfig.json:
 
 webpack.config.js:
 	npx webpack init
-	npx eslint --fix --fix --no-eslintrc --rule 'indent: ["error", 2]' --parser-options='ecmaVersion:2015' $@
+	npx eslint --fix --no-eslintrc --rule 'indent: ["error", 2]' --parser-options='ecmaVersion:2015' $@
 
 postcss.config.js:
 	echo "module.exports = { plugins: [ require('autoprefixer'), require('postcss-nested') ] }" > $@
+	npx eslint --fix --no-eslintrc --rule 'indent: ["error", 2]' --parser-options='ecmaVersion:2015' $@
 
 .gitignore:
 	touch $@

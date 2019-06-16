@@ -1,7 +1,8 @@
-import "normalize.css";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import Header from "./components/header";
+import "normalize.css";
+import "style";
 
 const App = () => (
   <>

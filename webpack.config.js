@@ -86,7 +86,7 @@ module.exports = {
           'style-loader',
           'css-loader',
           {
-            loader: 'post-css-loader'
+            loader: 'postcss-loader'
             // options: {
             //   plugins: [
             //     require('postcss-nested')
@@ -118,7 +118,7 @@ module.exports = {
       path.resolve("./node_modules")
     ],
     extensions: [
-      ".ts", ".tsx", ".js", ".jsx"
+      ".ts", ".tsx", ".js", ".jsx", ".pcss"
     ]
   },
 
@@ -130,6 +130,13 @@ module.exports = {
         vendors: {
           priority: -10,
           test: /[\\/]node_modules[\\/]/
+        },
+        styles: {
+          priority: 10,
+          test: /style.pcss$/,
+          chunks: "all",
+          filename: "styles.[chunkhash].js",
+          enforce: true
         }
       },
 

@@ -33,6 +33,7 @@ DEV_PACKAGES := \
 	power-assert \
 	postcss \
 	postcss-loader \
+	astroturf \
 	@babel/preset-env \
 	@babel/preset-react \
 	@types/jest \
